@@ -13,7 +13,7 @@ axios.interceptors.request.use(
             }.json`;
         }
 
-        console.log(config.url);
+        // console.log(config.url);
         return config;
     },
     function (error) {
@@ -34,7 +34,7 @@ axios.interceptors.response.use(
         if (configFile.isFireBase) {
             res.data = { content: transformData(res.data) };
         }
-        console.log(res.data);
+        // console.log(res.data);
         return res;
     },
     function (e) {
