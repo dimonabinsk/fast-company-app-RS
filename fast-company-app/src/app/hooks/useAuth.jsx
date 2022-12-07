@@ -11,7 +11,6 @@ export const useAuth = () => {
 
 const AuthProvider = ({ children }) => {
     async function signUp({ email, password }) {
-        // const key = "AIzaSyD-nwC8K78crBQJ2W_sO9MzvYwmgP0lbQA";
         const key = process.env.REACT_APP_URL_KEY;
         const url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${key}`;
         const { data } = await httpAuth.post(url, {
