@@ -51,8 +51,7 @@ const AuthProvider = ({ children }) => {
             });
             setTokens(data);
             await createUser({ _id: data.localId, email, ...rest });
-            console.log(data);
-            console.log(currentUser);
+            // console.log(data);
         } catch (e) {
             errorCather(e);
             const { code, message } = e.response.data.error;
@@ -71,6 +70,7 @@ const AuthProvider = ({ children }) => {
         try {
             const { content } = userService.create(data);
             setUser(content);
+            console.log(currentUser);
         } catch (e) {
             errorCather(e);
         }

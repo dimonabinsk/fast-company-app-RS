@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 import TextField from "../common/form/textField";
 import { validator } from "../../utility/validator";
@@ -13,6 +14,7 @@ import { useAuth } from "../../hooks/useAuth";
 // import PropTypes from "prop-types";
 
 const RegisterForm = () => {
+    const history = useHistory();
     const [data, setData] = useState({
         email: "",
         password: "",
@@ -152,6 +154,7 @@ const RegisterForm = () => {
         // console.log(newData);
         try {
             await signUp(newData);
+            history.push("/");
         } catch (e) {
             // console.log(e);
             setErrors(e);
