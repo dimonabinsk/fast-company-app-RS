@@ -70,13 +70,12 @@ const AuthProvider = ({ children }) => {
         try {
             const { content } = userService.create(data);
             setUser(content);
-            console.log(currentUser);
         } catch (e) {
             errorCather(e);
         }
     }
     return (
-        <AuthContext.Provider value={{ signUp }}>
+        <AuthContext.Provider value={{ signUp, currentUser }}>
             {children}
         </AuthContext.Provider>
     );
