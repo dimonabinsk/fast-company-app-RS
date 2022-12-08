@@ -39,7 +39,7 @@ const AuthProvider = ({ children }) => {
     }, [error]);
 
     async function signUp({ email, password, ...rest }) {
-        const key = process.env.REACT_APP_URL_KEY;
+        const key = process.env.REACT_APP_FIREBASE_KEY;
         const url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${key}`;
 
         try {
