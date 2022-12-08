@@ -55,6 +55,15 @@ const AuthProvider = ({ children }) => {
             console.log(currentUser);
         } catch (e) {
             errorCather(e);
+            const { code, message } = e.response.data.error;
+            if (code === 400) {
+                if (message === "EMAIL_EXISTS") {
+                    const errorObject = {
+                        email: "Пользователь с таким email уже существует"
+                    };
+                    throw errorObject;
+                }
+            }
         }
     }
 
@@ -65,7 +74,8 @@ const AuthProvider = ({ children }) => {
         } catch (e) {
             errorCather(e);
         }
-    } return (
+    }
+    return (
         <AuthContext.Provider value={{ signUp }}>
             {children}
         </AuthContext.Provider>
